@@ -1,0 +1,19 @@
+#boardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 50px;
+}
+
+#boardContainer div:nth-child(1), div:nth-child(4), div:nth-child(7) {
+  border-right: 1px solid black;
+}
+
+#boardContainer div:nth-child(3), div:nth-child(6), div:nth-child(9) {
+  border-left: 1px solid black;
+}
+
+#boardContainer div:nth-child(2), div:nth-child(5), div:nth-child(8) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}

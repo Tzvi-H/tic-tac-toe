@@ -12,7 +12,9 @@ const Player = function(name) {
 }
 
 const gameBoard = (() => {
-  const board = new Array(9)
+  const x = 'X';
+  const y = 'Y';
+  const board = new Array(9).fill('x')
 
   return {
     board
@@ -20,7 +22,25 @@ const gameBoard = (() => {
 })()
 
 const displayController = (() => {
-  const start = () => console.log('starting game')
+  const boardContainer = document.querySelector('#boardContainer');
+
+  const createPositionElement = (position, index) => {
+    const element = document.createElement('div')
+    element.textContent = position
+    element.dataset.index = index
+    return element;
+  }
+
+  const createBoard = () => {
+    gameBoard.board.forEach((position, index) => {
+      const element = createPositionElement(position, index);
+      boardContainer.appendChild(element)
+    })
+  }
+
+  const start = () => {
+    createBoard()
+  }
 
   return {
     start
