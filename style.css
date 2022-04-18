@@ -1,7 +1,8 @@
-main {
-  margin-top: 32px;
-  display: flex;
+ body {
+  display: grid;
+  grid-template-rows: 1fr;
   justify-content: center;
+  gap: 32px;
 }
 
 #boardContainer {

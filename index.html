@@ -10,19 +10,32 @@
 </head>
 
 <body>
-  <main>
-    <div id="boardContainer">
-      <div data-index="1" class="top-row left-col"></div>
-      <div data-index="2" class="top-row middle-col"></div>
-      <div data-index="3" class="top-row right-col"></div>
-      <div data-index="4" class="middle-row left-col"></div>
-      <div data-index="5" class="middle-row middle-col"></div>
-      <div data-index="6" class="middle-row right-col"></div>
-      <div data-index="7" class="bottom-row left-col"></div>
-      <div data-index="8" class="bottom-row middle-col"></div>
-      <div data-index="9" class="bottom-row right-col"></div>
+  <div id="boardContainer">
+    <div data-index="1" class="top-row left-col"></div>
+    <div data-index="2" class="top-row middle-col"></div>
+    <div data-index="3" class="top-row right-col"></div>
+    <div data-index="4" class="middle-row left-col"></div>
+    <div data-index="5" class="middle-row middle-col"></div>
+    <div data-index="6" class="middle-row right-col"></div>
+    <div data-index="7" class="bottom-row left-col"></div>
+    <div data-index="8" class="bottom-row middle-col"></div>
+    <div data-index="9" class="bottom-row right-col"></div>
+  </div>
+
+  <div id="interactiveContainer">
+    <input type="text" placeholder="enter your name">
+    <button>start game</button>
+  </div>
+
+  <div id="scores" hidden>
+    <div id="player">
+      <span id="userName"></span> - <span id="userScore"></span>
     </div>
-  </main>
+
+    <div>
+      <span id="computerName">computer</span> - <span id="computerScore"></span>
+    </div>
+  </div>
 </body>
 
 </html>
