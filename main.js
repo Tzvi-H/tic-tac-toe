@@ -59,7 +59,9 @@ const displayController = (() => {
 
     if (isWinner(gameBoard, 'X')) {
       interactiveContainer.textContent = `${name} wins!`
+      increaseScore('user')
       handleFinish()
+
     } else if (boardIsFull(gameBoard)) {
       interactiveContainer.textContent = `no more spaces left!`
       handleFinish()
@@ -67,12 +69,18 @@ const displayController = (() => {
       computerGoes(gameBoard)
       if (isWinner(gameBoard, 'O')) {
         interactiveContainer.textContent = 'computer wins!'
+        increaseScore('computer')
         handleFinish()
       } else if (boardIsFull(gameBoard)) {
         interactiveContainer.textContent = `no more spaces left!`
         handleFinish()
       }
     }
+  }
+
+  const increaseScore = player => {
+    scores[player]++;
+    updateScores()
   }
 
   const handleFinish = () => {
