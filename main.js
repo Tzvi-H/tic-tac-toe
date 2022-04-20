@@ -1,4 +1,5 @@
 const gameBoard = new Array(9).fill(null);
+const MAX_WINS = 2
 
 const displayController = (() => {
   const boardContainer = document.querySelector('#boardContainer');
@@ -61,7 +62,6 @@ const displayController = (() => {
       interactiveContainer.textContent = `${name} wins!`
       increaseScore('user')
       handleFinish()
-
     } else if (boardIsFull(gameBoard)) {
       interactiveContainer.textContent = `no more spaces left!`
       handleFinish()
@@ -76,6 +76,13 @@ const displayController = (() => {
         handleFinish()
       }
     }
+    if (scores.user >= MAX_WINS || scores.computer >= MAX_WINS) {
+      resetWholeGame()
+    }
+  }
+
+  const resetWholeGame = () => {
+    interactiveContainer.textContent = `${MAX_WINS} wins reached! Game over!`
   }
 
   const increaseScore = player => {
@@ -86,7 +93,7 @@ const displayController = (() => {
   const handleFinish = () => {
     boardContainer.removeEventListener('click', handleBoardClick)
     const button = document.createElement('button')
-    button.textContent = 'restart game'
+    button.textContent = 'new game'
     interactiveContainer.insertAdjacentElement('beforeend', button)
     button.addEventListener('click', restartGame)
   }
